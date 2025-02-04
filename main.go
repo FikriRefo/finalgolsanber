@@ -19,12 +19,10 @@ func main() {
 	router.PostRouter(api)
 	router.ProfileRouter(api)
 	router.CommentRouter(api)
-
+	// Pastikan server berjalan di port yang benar
 	port := config.ENV.PORT
 	if port == "" {
-		port = "5432" // Default jika tidak ada
+		port = "8080" // Default port jika tidak ada di .env
 	}
-
-	fmt.Println("Starting server on port:", port)
 	r.Run(fmt.Sprintf(":%s", port))
 }
